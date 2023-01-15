@@ -1,26 +1,6 @@
 import java.util.Objects;
 import java.util.Scanner;
 
-/*
-
-Задача 5 (Под звёздочкой)
-На часах есть циферблат в формате от 00:00 до 24:00
-Необходимо подсчитать когда и сколько раз в день происходит ситуация, что цифры на циферблате часов симметричны
-Например при 01:10 в консоль выйдет сообщение:
-Время 01:10 - Всего случаев: 1
-Время 02:20 - Всего случаев: 2
-и т.д.
-
-Задача 6 (Рекурсия)
-Решите при помощи рекурсии и цикла ( 2 разных решения) задачу перевода из десятичной системы счисления в двоичную.
-
-Задача 7(Рекурсия)
-Возведение числа 5 в N-ую степень. На вход подаём степень, в ответе получаем число 5 в степени N.
-Это решаем только через рекурсию, варианта через цикл не надо
-
-Задача 8(Рекурсия под звёздочкой)
-Решите задачу 3 через рекурсию, при этом вывод в консоль должен прям показывать этапы сложения. Это значит в консоле мы должны увидеть следующее
-1 + 2 + 3 + 4 = 10 а не просто результата 10 */
 public class Work9 {
 
     static Scanner in = new Scanner(System.in);
@@ -33,6 +13,7 @@ public class Work9 {
             }
         }
     }
+
 
     static void task2For() {
         System.out.print("Input a number: ");
@@ -80,6 +61,7 @@ public class Work9 {
         while (k <= num - 2);
     }
 
+
     static void task3DoWhile() {
         System.out.print("Input a number: ");
         int num = in.nextInt();
@@ -113,9 +95,12 @@ public class Work9 {
         System.out.println(summa);
     }
 
+
     static void task4For() {
         System.out.print("Input string(words through spaces): "); //коток слов строка потоп слов реппер
         String str = in.nextLine();
+        str = str.toLowerCase();
+        str = str.replaceAll("\\p{Punct}", "");
         String[] arr = str.split(" ");
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -135,6 +120,7 @@ public class Work9 {
         }
         System.out.print(count);
     }
+
 
     static void task5If() {
         System.out.print("Input a number(From 1 to 12): ");
@@ -180,7 +166,6 @@ public class Work9 {
                 break;
         }
     }
-
     static void task5X() {
         int counter = 0;
         for (int i = 0; i <= 24; i++) {
@@ -202,5 +187,63 @@ public class Work9 {
         }
     }
 
+
+    static void task6For() {
+        System.out.print("Input a number: ");
+        int num = in.nextInt();
+        String answ = new String();
+        while (num != 0) {
+            answ = answ + num % 2;
+            num = num / 2;
+        }
+        answ = new StringBuilder(answ).reverse().toString();
+        System.out.println("Число " + num + " в двоичной системе равно " + answ);
+    }
+    static String answRecurs = new String();
+    static String task6recurs(int num) {
+        if (num == 0) {
+            answRecurs = new StringBuilder(answRecurs).reverse().toString();
+            return answRecurs;
+        } else {
+            answRecurs = answRecurs + num % 2;
+            return task6recurs(num / 2);
+        }
+    }
+
+
+    static int task7 = 5;
+    static String task7recurs(int degree) {
+        if (task7 == 0) {
+            answRecurs = new StringBuilder(answRecurs).reverse().toString();
+            return answRecurs;
+        } else {
+            answRecurs = answRecurs + task7 % degree;
+            return task6recurs(task7 / degree);
+        }
+    }
+
+
+    static int summaTask8 = 0;
+    static int counter = 0;
+    static int task8(int num) {
+        if (counter == 0) {
+            String str = String.valueOf(num);
+            StringBuilder builder = new StringBuilder(str);
+            builder.reverse();
+            num = Integer.parseInt(builder.toString());
+            counter++;
+        }
+        if (num == 0) {
+            System.out.print(" = ");
+            return summaTask8;
+        } else {
+            summaTask8 = summaTask8 + num % 10;
+            System.out.print(num % 10);
+            if (num > 10) {
+                System.out.print(" + ");
+            }
+            return task8 (num / 10);
+        }
+    }
 
 }

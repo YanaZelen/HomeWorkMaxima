@@ -1,7 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        Work9.task5X();
+        System.out.println(Work9.task8(1234));
     }
 }
 
-/*  0, 1, 1, 2, 3, 5, 8, 13, 21, 34 */
+/*
+Для 4 задания : Коток слов, Строка потоп слов! реппер
+Для 6 задания : 12548 == 11000100000100
+*/
