@@ -6,11 +6,17 @@ import work11.task3.Stupefy;
 import work11.task3.WingardiumLeviosa;
 import work11.task4.Exams;
 import work11.task4.Faculties;
+import work12.Work12;
 
 import java.util.Arrays;
 
 public class Main {
+    public static void main(String[] args) {
+        Work12.Calculator();
+    }
+}
 
+    /*
     public static void main(String[] args) {
         Malfoy Draco = new Malfoy("Draco", "Malfoy");
         Potter Harry = new Potter("Harry", "Potter");
@@ -59,12 +65,5 @@ public class Main {
 
         System.out.print("\n");
         System.out.println(Arrays.toString(Exams.values()));
-    }
-}
 
-/*
-Для 9 домашки
-
-Для 4 задания : Коток слов, Строка потоп слов! реппер
-Для 6 задания : 12548 == 11000100000100
-*/
+     */
