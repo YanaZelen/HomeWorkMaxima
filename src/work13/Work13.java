@@ -15,6 +15,10 @@ public class Work13 {
         File file_to = new File(adress + to + ".txt");
         File file_log = new File(adress + "log.txt");
 
+        LocalDateTime current = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        String formatedDateTime = current.format(format);
+
         FileWriter writer = new FileWriter(file_from);
         writer.write("Hogwarts, Hogwarts, Hoggy Warty Hogwarts,\n" + "Teach us something please,\n" +
                 "Whether we be old and bald\n" +  "Or young with scabby knees,\n" +
@@ -25,21 +29,31 @@ public class Work13 {
         writer.close();
 
         try(FileInputStream input = new FileInputStream(file_from);
-
-            FileOutputStream output = new FileOutputStream(file_to))
+            FileOutputStream output = new FileOutputStream(file_to);
+            FileWriter writer_logs = new FileWriter(file_log, true))
         {
             byte[] buffer = input.readAllBytes();
             output.write(buffer);
 
-            LocalDateTime current = LocalDateTime.now();
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-            String formatedDateTime = current.format(format);
-
-            FileWriter writer_logs = new FileWriter(file_log, true);
             writer_logs.write(formatedDateTime  + " был скопирован файл " + from + " → " + to);
-            writer_logs.close();
         }
 
     }
 }
 
+/*
+Ко мне тут приходили в гости ребята с курса по питону, и я им про эти пакеты как раз рассказывала))) так сказать, закрепляла материал.
+
+Это пакеты ввода и вывода, один буферо-ориентированный, другой потоко-ориентированый. IO не даст обратиться к данным пока он записывает или считывает их, а NIO даст, потому что во время процесса записывает их частично в буферы. Но необходимо следить, чтобы в том же буфере было достаточно места.
+Поток данных - некоторая последовательность данных, которые можно записывать, передавать, обрабатывать.
+
+Поток вывода, поток ввода ?)
+
+В основе всех потоков в Java два абстрактных класса InputStream и OutputStream (stream - поток данных), они управляют байтовыми потоками данных. Для чтения и записи символов добавили Writer и Reader(хотя потом все конечно все равно преобразовывается в байты).
+
+Например с помощью различных методов Stream
+
+
+
+try-catch- wr используется для сокращения кода, когда нам нужно, чтобы запись в файл была обязательно остановлена.
+ */
