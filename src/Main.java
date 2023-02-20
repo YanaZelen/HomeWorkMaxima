@@ -8,13 +8,15 @@ import work11.task4.Exams;
 import work11.task4.Faculties;
 import work12.Work12;
 import work13.Work13;
+import work14.Work14;
 
 import java.io.IOException;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Work13.Work13();
+        Integer[] myArr = {1,2,5,8,11};
+        Work14.Work14(myArr);
     }
 }
 
