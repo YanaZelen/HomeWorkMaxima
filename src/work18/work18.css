@@ -56,6 +56,38 @@ a:hover {
     color: #d8d4b0e7;
 }
 
+ol {
+    list-style-type: none;
+    counter-reset: num;
+    margin: 0 0 0 580px;
+    padding: 220px 0 5px 0;
+    font-size: 16px;
+}
+ol li {
+    position: relative;
+    margin: 0 0 0 0;
+    padding: 0 0 10px 0;
+    line-height: 1.4;
+    color: #597D5D;
+    font-family: 'Poiret One', cursive;
+    font-size: 20pt;
+}
+ol li:before {
+    content: counter(num);
+    counter-increment: num;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -38px;
+    width: 28px;
+    height: 28px;
+    color: #000;
+    text-align: center;
+    line-height: 28px;
+    font-size: 18px;
+    border-radius: 50%;
+    border: 1px solid #ef6780;
+}
 
 
 title {
@@ -247,3 +279,4 @@ html {
     transform: translateX(-200%);
 
 }
+
