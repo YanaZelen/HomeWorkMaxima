@@ -19,6 +19,17 @@ public class Work15_2 {
 
     static Scanner in = new Scanner(System.in);
 
+    Item examp = new Item(1, "Name1");
+    Item examp2 = new Item(2, "Name2");
+    Item examp3 = new Item(3, "Name3");
+    Item examp4 = new Item(4, "Name5");
+
+    static LocalDateTime localDate1 = LocalDateTime.of(2022, 12, 20, 3, 20);
+    static LocalDateTime localDate2 = LocalDateTime.of(2022, 8, 21, 4, 20);
+    static LocalDateTime localDate3 = LocalDateTime.of(2023, 1, 22, 5, 20);
+    static LocalDateTime localDate4 = LocalDateTime.of(2023, 2, 23, 6, 20);
+    static LocalDateTime localDate5 = LocalDateTime.of(2023, 2, 24, 7, 20);
+
     public static void task1() {
 
         String[] suNames = {"Спилберг","Тарантино","Андерсон", "Сорентино", "Елкин", "Скорсезе", "Емелин", "Шьямалан"};
@@ -36,11 +47,11 @@ public class Work15_2 {
     }
 
 
-    public static class Order {
-        static long id;
-        static String name;
-        static List<Item> itemList; // Это то, что заказали
-        static LocalDateTime createDate;
+    public class Order {
+        long id;
+        String name;
+        List<Item> itemList; // Это то, что заказали
+        LocalDateTime createDate;
 
         public Order(long id, String name, List<Item> itemList, LocalDateTime createDate) {
             this.id = id;
@@ -49,7 +60,7 @@ public class Work15_2 {
             this.createDate = createDate;
         }
 
-        public static LocalDateTime getCreateDate() {
+        public LocalDateTime getCreateDate() {
             return createDate;
         }
 
@@ -64,9 +75,19 @@ public class Work15_2 {
         public List<Item> getItemList() {
             return itemList;
         }
+
+        @Override
+        public String toString() {
+            return "Order{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", itemList=" + itemList +
+                    ", createDate=" + createDate +
+                    '}';
+        }
     }
 
-    public static class Item {
+    public class Item {
         long id;
         String name;
 
@@ -74,18 +95,16 @@ public class Work15_2 {
             this.id = id;
             this.name = name;
         }
+
+        @Override
+        public String toString() {
+            return "Item{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    '}';
+        }
     }
 
-    static LocalDateTime localDate1 = LocalDateTime.of(2022, 12, 20, 3, 20);
-    static LocalDateTime localDate2 = LocalDateTime.of(2022, 8, 21, 4, 20);
-    static LocalDateTime localDate3 = LocalDateTime.of(2023, 1, 22, 5, 20);
-    static LocalDateTime localDate4 = LocalDateTime.of(2023, 2, 23, 6, 20);
-    static LocalDateTime localDate5 = LocalDateTime.of(2023, 2, 24, 7, 20);
-
-    static Item examp = new Item(1, "Name1");
-    static Item examp2 = new Item(2, "Name2");
-    static Item examp3 = new Item(3, "Name3");
-    static Item examp4 = new Item(4, "Name5");
 
     /*
 Задание 3
@@ -95,7 +114,7 @@ public class Work15_2 {
 На входе подаётся LIst<Order>
 Вернуть все заказы, которые были совершены в определённом промежутке времени (от и до).
  */
-    public static void task3() {
+    public void task3() {
 
         LocalDateTime start = LocalDateTime.of(2020, 12, 1, 0, 1);
         LocalDateTime end = LocalDateTime.of(2023, 2, 10, 0, 1);
@@ -108,7 +127,7 @@ public class Work15_2 {
                 new Order(15, "Order5", List.of(new Item[]{examp, examp2}), localDate1)));
         
         orderList.stream()
-                .filter(s-> (s.getCreateDate().isAfter(start) && s.getCreateDate().isBefore(end))).map(Order::getName).forEach(System.out::println);
+                .filter(s-> (s.getCreateDate().isAfter(start) && s.getCreateDate().isBefore(end))).forEach(System.out::println);
     }
 }
 

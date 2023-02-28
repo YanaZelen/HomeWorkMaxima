@@ -9,14 +9,15 @@ import work11.task4.Faculties;
 import work12.Work12;
 import work13.Work13;
 import work14.Work14;
+import work15_2.Work15_2;
 
 import java.io.IOException;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Integer[] myArr = {1,2,5,8,11};
-        Work14.Work14(myArr);
+        Work15_2 work15_2 = new Work15_2();
+        work15_2.task3();
     }
 }
 
