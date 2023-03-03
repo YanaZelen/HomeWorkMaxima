@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) throws IOException {
         Work15_2 work15_2 = new Work15_2();
-        work15_2.task3();
+        work15_2.task4("yes");
     }
 }
 
